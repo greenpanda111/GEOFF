@@ -17,23 +17,23 @@ LED led(GPIO_PIN_2, GPIO_PIN_3, GPIO_PIN_4);
 
 int ultrasonicOffset = 0;
 
-void sensorsOutput(){
-  int IrOutputList[4] = {0,0,0,0};
+void sensorsOutput() {
+  int IrOutputList[4] = { 0, 0, 0, 0 };
   IrOutputList[0] = IR(0);
   IrOutputList[1] = IR(1);
   IrOutputList[2] = IR(2);
   IrOutputList[3] = IR(3);
-  
+
   Serial.print("IR:");
-  for(int i=0;i<4;i++){
+  for (int i = 0; i < 4; i++) {
     Serial.print(IrOutputList[i]);
-    if (i<3){
+    if (i < 3) {
       Serial.print(",");
     }
   }
   Serial.println("");
 
-  int UsOutputList[2] = {0,0};
+  int UsOutputList[2] = { 0, 0 };
   UsOutputList[0] = ultrasonic(0);
   UsOutputList[1] = ultrasonic(1);
   Serial.print("ultrasonic:");
@@ -47,31 +47,13 @@ void setup() {
   ultrasonicOffset = ultrasonicCorrection();
   leftMotor.setup();
   rightMotor.setup();
-  
 }
 
 void loop() {
   Serial.println("Loop Start --------------------------------");
   
-  
-  wait_us(STD_DELAY);
-  led.state(WHITE);
-  wait_us(STD_DELAY);
-  led.state(RED);
-  wait_us(STD_DELAY);
-  led.state(GREEN);
-  wait_us(STD_DELAY);
-  led.state(BLUE);
-  wait_us(STD_DELAY);
-  led.state(ORANGE);
-  wait_us(STD_DELAY);
-  led.state(PURPLE);
-  wait_us(STD_DELAY);
-  led.state(YELLOW);
-  wait_us(STD_DELAY);
-  led.state(OFF);
-  wait_us(STD_DELAY);
-  
+
+/*
   motorControl.forward();
   wait_us(STD_DELAY);
   motorControl.reverse();
@@ -80,7 +62,8 @@ void loop() {
   wait_us(STD_DELAY);
   motorControl.rotateCounterClockwise();
   wait_us(STD_DELAY);
-  
+*/
+
   //sensorsOutput();
   Serial.println();
 }

@@ -4,22 +4,21 @@
 #include "mbed.h"
 using namespace mbed;
 
-Motor::Motor(PinName PwmPin, PinName dirPin): _PwmPin(PwmPin), _dirPin(dirPin)
-{}
+Motor::Motor(PinName PwmPin, PinName dirPin)
+  : _PwmPin(PwmPin), _dirPin(dirPin) {}
 
-void Motor::setup(void){
+void Motor::setup(void) {
   _PwmPin.period(PWM_Period);
   _PwmPin.write(0.0f);
 }
 
-void Motor::move(int direction, float power){
-  Serial.print("moving, ");
+void Motor::move(int direction, float power) {
   Serial.println(power);
 
   _dirPin.write(direction);
   _PwmPin.write(power);
 }
 
-void Motor::stop(void){
+void Motor::stop(void) {
   _PwmPin.write(0.0f);
 }

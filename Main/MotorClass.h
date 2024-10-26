@@ -12,17 +12,17 @@ using namespace mbed;
 #define PWM_Period 0.01f
 #define Default_Power 1.0f
 
-  class Motor{
-    public:
-      Motor(PinName PwmPin, PinName dirPin);
-      void move(int direction, float power);
-      void setup();
-      void stop();
-    private:
-      PwmOut _PwmPin;
-      DigitalOut _dirPin;
-  };
+class Motor {
+public:
+  Motor(PinName PwmPin, PinName dirPin);
+  void move(int direction, float power);
+  void setup();
+  void stop();
+private:
+  PwmOut _PwmPin;
+  DigitalOut _dirPin;
+};
 
-  extern Motor leftMotor;
-  extern Motor rightMotor;
+extern Motor leftMotor;
+extern Motor rightMotor;
 #endif
